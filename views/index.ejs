@@ -1,0 +1,54 @@
+<%- include('./layout/header') %>
+
+
+<style>
+    div.messages {
+  display:none;
+  justify-content: center;
+  align-items: center;
+  width: 0%;
+  padding: 0rem;
+}
+</style>
+
+<h1 class="title">LNMIIT Hostel Manageent System</h1>
+<div class="tutorial-info" >
+  
+    <% if (!user) { %>
+       
+        <div class="image-container">
+          <img src="/images/lnmiit_campus.jpg" alt="Campus Image" width="750vw" id="LNM_image">
+
+        </div>
+
+    <% } else { %>
+        <!-- Content visible only after login -->
+          
+          <!-- Buttons for different actions -->
+          <div class="buttons">
+            <% if (user && user.role === 'CLIENT') { %>
+                <a href="/complaints/add" class="btn btn-primary">Register a Complaint</a>
+            <% } %>
+              
+              <!-- View All Complaints Button (Visible to Admin) -->
+              <% if (user && (user.role === 'ADMIN1'||user.role === 'ADMIN2'||user.role === 'ADMIN3'||user.role === 'ADMIN4')) { %>
+                  <a href="/complaints/all" class="btn btn-info">View All Complaints</a>
+              <% } %>
+              
+              <!-- View Resolved Complaints Button (Visible to Admin) -->
+              <% if (user && (user.role === 'ADMIN1'||user.role === 'ADMIN2'||user.role === 'ADMIN3'||user.role === 'ADMIN4')) { %>
+                  <a href="/complaints/resolved" class="btn btn-success">View Resolved Complaints</a>
+              <% } %>
+        
+              <!-- View My Complaints Button (Visible to all users) -->
+              <% if (user && user.role === 'CLIENT') { %>
+                <a href="/complaints/my-complaints" class="btn btn-warning">View My Complaints</a>
+            <% } %>
+          </div>
+    
+       
+    <% } %>
+
+</div>
+
+<%- include('./layout/footer') %>

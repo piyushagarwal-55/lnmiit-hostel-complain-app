@@ -1,0 +1,96 @@
+
+<%- include('layout/header') %>
+
+<h1>All Complaints</h1>
+<style>  
+
+
+
+    .complaints-container {  
+        width: 100%;
+        display: flex;  
+        flex-wrap: wrap;  
+        gap: 20px;  
+    }  
+    .complaint-card {  
+        border: 1px solid #ccc;  
+        padding: 15px;  
+        border-radius: 8px;  
+        width: calc(33.33% - 20px); /* Three cards per row with gap */  
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);  
+        background-color: #f9f9f9;  
+        min-height: 150px; /* Adjust as needed */  
+    }  
+    .complaint-card h3 {  
+        margin-top: 0;  
+        font-size: 1.5em; /* Increase size for better visibility */  
+    }  
+    .complaint-card p {  
+        margin: 5px 0; /* Add margin for spacing */  
+    }  
+    .complaint-card form {  
+        margin-top: 10px;  
+    }  
+    .complaint-card select, .complaint-card button {  
+        margin-top: 5px;  
+        padding: 5px 10px;  
+        width: 100%; /* Make button and select take full width */  
+        box-sizing: border-box; /* Ensure padding doesn't affect width */  
+    }  
+    button {  
+        background-color: green; /* Better visibility for button */  
+        color: white; /* Text color for button */  
+        border: none; /* Remove default border */  
+        cursor: pointer; /* Change cursor on hover */  
+    }  
+    button:hover {  
+        background-color: darkgreen; /* Change color on hover */  
+    }  
+
+    @media (max-width: 468px) {
+        .complaint-card {  
+        border: 1px solid #ccc;  
+        padding: 15px;  
+        border-radius: 8px;  
+        width: 100%; /* Three cards per row with gap */  
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);  
+        background-color: #f9f9f9;  
+        min-height: 150px; /* Adjust as needed */  
+    }  
+
+    main {
+    display: flex
+;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+}
+nav{
+    margin-bottom: 0px;
+}
+    }
+</style>
+
+<div class="complaints-container">
+    <% complaints.forEach(complaint => { %>
+        <div class="complaint-card">
+            <h3><%= complaint.title %></h3>
+            <p><strong>Room No:</strong> <%= complaint.roomNo %></p>
+            <p><strong>Mobile No:</strong> <%= complaint.mobileNo %></p>
+            <p><strong>Roll No:</strong> <%= complaint.rollNo %></p>
+
+            <form action="/complaints/update-status" method="POST">
+                <input type="hidden" name="complaintId" value="<%= complaint._id %>" />
+                <select name="status">
+                    <option value="Pending" <%= complaint.status === 'Pending' ? 'selected' : '' %>>Pending</option>
+                    <option value="Resolved" <%= complaint.status === 'Resolved' ? 'selected' : '' %>>Resolved</option>
+                </select>
+                <button type="submit">Update</button>
+            </form>
+        </div>
+    <% }) %>
+</div>
+
+
+<%- include('layout/footer') %>

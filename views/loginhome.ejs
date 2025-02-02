@@ -1,0 +1,27 @@
+<%- include('layout/header') %>
+<div class="container">
+    <h1>Welcome to the Hostel Complaint System</h1>
+    <p>Please select an option below:</p>
+    
+    <!-- Buttons for different actions -->
+    <div class="buttons">
+        <!-- Register Complaint Button -->
+        <a href="/complaints/add" class="btn btn-primary">Register a Complaint</a>
+        
+        <!-- View All Complaints Button (Visible to Admin) -->
+        <% if (user && user.role === 'ADMIN') { %>
+            <a href="/complaints/all" class="btn btn-info">View All Complaints</a>
+        <% } %>
+        
+        <!-- View Resolved Complaints Button (Visible to Admin) -->
+        <% if (user && user.role === 'ADMIN') { %>
+            <a href="/complaints/resolved" class="btn btn-success">View Resolved Complaints</a>
+        <% } %>
+  
+        <!-- View My Complaints Button (Visible to all users) -->
+        <% if (user) { %>
+            <a href="/complaints/my-complaints" class="btn btn-warning">View My Complaints</a>
+        <% } %>
+    </div>
+  </div>
+  <%- include('./layout/footer') %>

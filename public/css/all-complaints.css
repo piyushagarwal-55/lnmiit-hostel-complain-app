@@ -1,0 +1,117 @@
+/* All Complaints Page Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fc;
+    margin: 10px;
+    /* margin-left: 0px; */
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 2.5rem;
+    /* margin-left: 50%; */
+    color: #333;
+}
+table {
+    width: 100%; /* Changed from 166% to 100% for better scaling on laptops */
+    max-width: 1200px; /* Set a max width to prevent excessive stretching on larger screens */
+    margin: 20px auto;
+    border-collapse: collapse;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    color: #333;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+form {
+    display: inline-block;
+}
+
+select {
+    padding: 5px;
+    margin-right: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+button {
+    padding: 5px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.actions-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.actions-column form {
+    margin-right: 10px;
+}
+
+.actions-column select {
+    width: 150px;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px; /* Ensures the container doesn't get too wide on large screens */
+    margin: 0 auto;
+}
+
+/* Adjustments for laptop screens */
+@media (min-width: 769px) and (max-width: 1366px) {
+    table {
+        width: 100%; /* Keep the table within the screen width */
+    }
+    th, td {
+        font-size: 1rem; /* Maintain readability */
+    }
+    h1 {
+        font-size: 2.5rem; /* Slightly larger headings for laptops */
+    }
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+    table {
+        width: 100%;
+    }
+    th, td {
+        font-size: 0.9rem;
+    }
+    h1 {
+        font-size: 2rem;
+    }
+}

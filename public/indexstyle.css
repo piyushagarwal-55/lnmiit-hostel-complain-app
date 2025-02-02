@@ -1,0 +1,65 @@
+/* Container for content */
+.container {
+  text-align: center;
+  margin-top: 50px;
+  padding: 0 15px; /* Add some padding for smaller screens */
+}
+
+/* Buttons styling */
+.buttons {
+  margin-top: 20px;
+  display: flex; /* Use flexbox for better alignment */
+  flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+  justify-content: center; /* Center buttons */
+}
+
+.buttons .btn {
+  padding: 12px 20px;
+  margin: 10px;
+  text-decoration: none;
+  border-radius: 5px;
+  color: white;
+  flex: 1 1 auto; /* Allow buttons to grow and shrink */
+  min-width: 150px; /* Set a minimum width for buttons */
+}
+
+/* Button colors */
+.buttons .btn-primary {
+  background-color: #007bff;
+}
+
+.buttons .btn-info {
+  background-color: #17a2b8;
+}
+
+.buttons .btn-success {
+  background-color: #28a745;
+}
+
+.buttons .btn-warning {
+  background-color: #ffc107;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .container {
+      margin-top: 30px; /* Reduce margin on smaller screens */
+  }
+
+  .buttons .btn {
+      padding: 10px 15px; /* Adjust padding for smaller screens */
+      margin: 5px; /* Reduce margin for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+      margin-top: 20px; /* Further reduce margin on very small screens */
+  }
+
+  .buttons .btn {
+      padding: 8px 10px; /* Further adjust padding */
+      margin: 3px; /* Further reduce margin */
+      font-size: 14px; /* Adjust font size for smaller screens */
+  }
+}

@@ -1,0 +1,16 @@
+<nav>
+  <h2 id="LNMIIT">LNMIIT</h2>
+  <ul>
+    <% if (user) { %>
+      <li><a href="/">Home</a></li>
+      <li><a href="/user/profile">Profile</a></li>
+      <!-- <li><a href="/admin/profile">Manage Users</a></li> -->
+      <li><a href="/auth/logout">Logout</a></li>
+    <% } else { %>
+      <li><a href="/">Home</a></li>
+      <li><a href="/auth/register">Register</a></li>
+      <li><a href="/auth/login">Login</a></li>
+    <% } %>  <!-- Correctly close the if-else block -->
+  </ul>
+</nav>
+

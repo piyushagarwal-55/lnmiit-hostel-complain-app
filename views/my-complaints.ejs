@@ -1,0 +1,31 @@
+<%- include('layout/header') %>
+<style>
+    div.messages {
+  display:none;
+  justify-content: center;
+  align-items: center;
+  width: 0%;
+  padding: 0rem;
+}
+</style>
+<h1>My Complaints</h1>
+<table border="1">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% complaints.forEach(complaint => { %>
+            <tr>
+                <td><%= complaint.title %></td>
+                <td><%= complaint.description %></td>
+                <td><%= complaint.status %></td>
+            </tr>
+        <% }) %>
+    </tbody>
+</table>
+
+<%- include('layout/footer') %>

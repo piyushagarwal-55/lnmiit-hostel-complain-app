@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Complaint</title>
+    
+    <style>
+        /* General Styling */
+        
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #fff;
+  font-family: 'Space Mono', monospace;
+  font-family: 'Open Sans', sans-serif;
+
+  max-width: 1220px;
+  /* margin-left: auto; */
+  font-size: 1rem;
+}
+nav {
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0;
+  margin-left: 0%;
+  margin-bottom: 40px;
+}
+
+nav > ul > li {
+  list-style: none;
+  display: inline-block;
+}
+
+nav > ul > li > a,
+a {
+  text-decoration: none;
+  color: #db2777;
+  padding: 8px 16px;
+  border-radius: 8px;
+}
+
+nav > ul > li > a:hover,
+a:hover {
+  background-color: #fdf2f8;
+}
+
+h1.title {
+  text-align: center;
+  margin: 1rem;
+  width: 100%;
+  text-decoration: underline;
+  margin-left: 50%;
+}
+
+
+
+/* Container Styling */
+.container {
+    background-color: white;
+    padding: 20px;
+    margin: 50px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 60%;
+    border: #db2777 solid 2px;
+}
+
+/* Heading */
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #fff;
+  font-family: 'Space Mono', monospace;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1rem;
+  overflow-x: hidden;
+}
+
+
+/* Container for main content */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+body {
+  background-color: #fff;
+  font-family: 'Space Mono', monospace;
+  font-family: 'Open Sans', sans-serif;
+
+  max-width: 1220px;
+  /* margin-left: auto; */
+  font-size: 1rem;
+}
+
+nav {
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0;
+  margin-left: 0%;
+  margin-bottom: 40px;
+}
+
+nav > ul > li {
+  list-style: none;
+  display: inline-block;
+}
+
+nav > ul > li > a,
+a {
+  text-decoration: none;
+  color: #db2777;
+  padding: 8px 16px;
+  border-radius: 8px;
+}
+
+nav > ul > li > a:hover,
+a:hover {
+  background-color: #fdf2f8;
+}
+
+h1.title {
+  text-align: center;
+  margin: 1rem;
+  width: 100%;
+  text-decoration: underline;
+  margin-left: 50%;
+}
+@media (min-width: 769px) {
+  nav {
+    margin-left: 22%;
+    
+  }
+  h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+}
+}
+
+@media (max-width: 768px) {
+  nav {
+    justify-content: center;
+    margin-left: 0;
+  }
+}
+
+nav > ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+nav > ul > li {
+  list-style: none;
+}
+
+nav > ul > li > a,
+a {
+  text-decoration: none;
+  
+  color: #db2777;
+  padding: 28px 16px;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+nav > ul > li > a:hover,
+a:hover {
+  background-color: #fdf2f8;
+}
+
+h1.title {
+  text-align: center;
+  margin: 1rem auto;
+  width: 100%;
+  text-decoration: underline;
+}
+
+div.tutorial-info {
+  border: 4px solid #d1d5db;
+  padding: 1.5rem;
+  border-radius: 16px;
+  margin: 2rem auto;
+  width: 90%;
+  max-width: 800px;
+}
+
+@media (max-width: 768px) {
+  div.tutorial-info {
+    width: 95%;
+    padding: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+ol.tutorial-info {
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  padding: 0 1.5rem;
+}
+
+.tutorial-info > li {
+  margin: 8px 0;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+}
+
+form.lg-form {
+  margin: 1rem auto;
+  padding: 2rem;
+  border: 4px solid #d1d5db;
+  width: 90%;
+  max-width: 500px;
+  border-radius: 16px;
+}
+
+@media (max-width: 768px) {
+  form.lg-form {
+    width: 95%;
+    padding: 1.5rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.lg-form label,
+.lg-form input {
+  display: block;
+  width: 100%;
+  margin: 8px 0;
+}
+
+.lg-form label {
+  font-weight: bold;
+}
+
+.lg-form input {
+  height: 34px;
+  border: none;
+  border-radius: 8px;
+  padding: 8px;
+  font-size: 1rem;
+  background-color: #e3e7f0;
+}
+
+.lg-form input[type='submit'] {
+  margin: 16px 0;
+  background-color: #db2777;
+  color: #fff;
+  cursor: pointer;
+}
+
+input:focus {
+  outline: none;
+  background-color: #fff;
+  border: 2px solid #f3f4f6;
+}
+
+.manage-user-form input[type='submit'] {
+  background: transparent;
+  color: #db2777;
+  border: none;
+  outline: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.manage-user-form input[type='submit']:hover {
+  background-color: #fdf2f8;
+}
+
+.manage-user-form select {
+  border: none;
+  font-size: 1.05rem;
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 2px solid #f3f4f6;
+  width: 100%;
+}
+
+h1 {
+  margin-top: 0;
+}
+
+.profile {
+  width: 90%;
+  max-width: 600px;
+  padding: 1.5rem;
+  border: 4px solid #d1d5db;
+  border-radius: 16px;
+  margin: 2rem auto;
+}
+
+@media (max-width: 768px) {
+  .profile {
+    width: 95%;
+    padding: 1rem;
+  }
+}
+
+.profile > div {
+  padding: 1rem;
+}
+
+.profile .title {
+  font-weight: bold;
+}
+
+.goback {
+  cursor: pointer;
+}
+
+div.messages {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+}
+
+ul.messages {
+  list-style: none;
+  width: 90%;
+  max-width: 600px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 1rem auto;
+}
+
+ul.messages * {
+  padding: 8px 12px;
+}
+
+.messages .error {
+  background-color: #f87171;
+}
+
+.messages .success {
+  background-color: #6ee7b7;
+}
+
+.messages .warning {
+  background-color: #fcd34d;
+}
+
+.messages .info {
+  background-color: #93c5fd;
+}
+
+/* Responsive Typography */
+@media (max-width: 480px) {
+  #LNM_image{
+    width: 280px;
+    height: 300px;
+  }
+  nav{
+    width: 100%;
+  }
+  #LNMIIT{
+    margin-right: 50px;
+  }
+  body {
+    font-size: 0.875rem;
+  }
+  
+  h1 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Additional Mobile Optimizations */
+@media (max-width: 380px) {
+  .lg-form,
+  .profile,
+  div.tutorial-info {
+    padding: 1rem;
+  }
+  
+  nav > ul > li > a,
+  a {
+    padding: 6px 12px;
+  }
+}
+
+
+/* Form Groups */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 5px;
+    display: block;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Textarea Styling */
+textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+/* Submit Button */
+.btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #45a049;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        width: 96%;
+    }
+}
+
+/* Responsive Typography */
+@media (max-width: 480px) {
+  #LNM_image{
+    width: 280px;
+    height: 300px;
+  }
+  nav{
+    width: 100%;
+  }
+  #LNMIIT{
+    margin-right: 50px;
+  }
+  body {
+    font-size: 0.875rem;
+  }
+  
+  h1 {
+    font-size: 1.5rem;
+  }
+}
+
+
+@media (max-width: 768px) {
+            nav {
+                justify-content: center;
+                margin-left: 0;
+            }
+        }
+        nav {
+            width: 60%;
+            display: flex
+        ;
+            justify-content: space-between;
+            padding: 0rem 0;
+            margin-left: 21%;
+            margin-bottom: 8px;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        user agent stylesheet
+        nav {
+            display: block;
+            unicode-bidi: isolate;
+        }
+        body {
+            background-color: #fff;
+            font-family: 'Space Mono', monospace;
+            font-family: 'Open Sans', sans-serif;
+            max-width: 1220px;
+            /* margin-left: auto; */
+            font-size: 1rem;
+        }
+        body {
+            background-color: #fff;
+            font-family: 'Space Mono', monospace;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1rem;
+            overflow-x: hidden;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fc;
+            margin: 10px;
+            /* margin-left: 0px; */
+            padding: 0;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+
+
+/* Make sure the navbar stays in a single row on mobile */
+@media (max-width: 540px) {
+  
+        /* Ensure navigation bar is a flex container */
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem 1rem;
+    margin-left: 0;
+    width: 100%;
+}
+
+#LNMIIT{
+  font-size: 23px;
+  font-weight: bolder;
+}
+
+/* Ensure the nav items are not wrapping */
+nav > ul {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: nowrap; /* Prevent wrapping */
+    margin: 0;
+}
+
+/* Ensure that each nav item aligns in a row */
+nav > ul > li {
+    list-style: none;
+}
+
+/* Hover effect for links */
+nav > ul > li > a,
+a {
+    text-decoration: none;
+    color: #db2777;
+    padding: 8px 16px;
+    border-radius: 8px;
+}
+
+nav > ul > li > a:hover,
+a:hover {
+    background-color: #fdf2f8;
+}
+    nav > ul {
+        flex-direction: row; /* Make sure the items align in one row */
+        justify-content: center; /* Center the navbar items */
+        margin: 0;
+    }
+    
+    nav > ul > li {
+        margin: 0; /* Remove margin if any */
+    }
+}
+
+    </style>
+    
+    <style>
+      div.messages {
+    display:none;
+    justify-content: center;
+    align-items: center;
+    width: 0%;
+    padding: 0rem;
+  }
+  </style>
+</head>
+
+<body>
+
+    <%- include('./layout/navbar') %>
+<div class="container">
+    <h1 style="margin-top: 15px;">Add New Complaint</h1>
+
+    <form action="/complaints/add" method="POST">
+        <!-- Room No -->
+        <div class="form-group">
+            <label for="roomNo">Room Number:</label>
+            <input type="text" id="roomNo" name="roomNo" required placeholder="Enter your room number" />
+        </div>
+
+        <!-- Mobile No -->
+        <div class="form-group">
+            <label for="mobileNo">Mobile Number:</label>
+            <input type="text" id="mobileNo" name="mobileNo" required placeholder="Enter your mobile number" />
+        </div>
+
+        <!-- Roll No -->
+        <div class="form-group">
+            <label for="rollNo">Roll Number:</label>
+            <input type="text" id="rollNo" name="rollNo" required placeholder="Enter your roll number" />
+        </div>
+
+        <!-- Complaint Title -->
+        <div class="form-group">
+            <label for="title">Complaint Title:</label>
+            <input type="text" id="title" name="title" required placeholder="Enter complaint title" />
+        </div>
+
+        <!-- Complaint Description -->
+        <div class="form-group">
+            <label for="description">Complaint Description:</label>
+            <textarea id="description" name="description" required placeholder="Describe your issue"></textarea>
+        </div>
+
+        <button type="submit" class="btn">Submit Complaint</button>
+    </form>
+</div>
+
+</body>
+</html>
