@@ -20,8 +20,13 @@ router.post('/login',ensureNotAuthenticated,passport.authenticate('local',{
    failureFlash:true
 }))
 router.post('/register',ensureNotAuthenticated,[
-    body('email').trim().isEmail().withMessage('Email must be a valid email').normalizeEmail().toLowerCase(),
-    body('password').trim().isLength(2).withMessage('Password should be of minimum length 2 '),
+    body('email').trim().isEmail().withMessage('Email must be a valid email').normalizeEmail().toLowerCase().custom(value => {
+      if (!value.endsWith('@lnmiit.ac.in')) {
+          throw new Error('Email must end with @lnmiit.ac.in');
+      }
+      return true;
+  }),
+    body('password').trim().isLength(8).withMessage('Password should be of minimum length 8 '),
     body('password2').custom((value,{req})=>{
         if (value != req.body.password){
             throw new Error('Passwords do not match')
@@ -40,7 +45,7 @@ router.post('/register',ensureNotAuthenticated,[
                 
              })
 
-             if (errors.array().some(err => err.msg === 'Email must be a valid email')) {
+             if (errors.array().some(err => err.msg === 'Email must be a valid email')||errors.array().some(err => err.msg === 'Email must end with @lnmiit.ac.in')) {
             res.render('register',{
                 messages:req.flash()
             }); 
