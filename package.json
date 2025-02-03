@@ -28,7 +28,7 @@
     "serverless-http": "^2.7.0"
   },
   "engines": {
-    "node": "16.x"
+    "node": "22.x"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.20",
