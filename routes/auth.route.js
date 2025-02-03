@@ -3,7 +3,7 @@ const User = require('../models/user.model');
 const { body, validationResult } = require('express-validator');
 const passport = require('passport');
 
-router.get('/login', ensureNotAuthenticated, async (req, res, next) => {
+router.get('/login', ensureNotAuthenticated, (req, res, next) => {
   res.render('login');
 });
 
@@ -89,11 +89,12 @@ function ensureAuthenticated(req, res, next) {
 }
 
 function ensureNotAuthenticated(req, res, next) {
+  console.log('EnsureNotAuthenticated middleware triggered');
   if (req.isAuthenticated()) {
-    res.redirect('back');
-  } else {
-    return next();
+    console.log('User already authenticated, redirecting to home');
+    return res.redirect('/');
   }
+  next();
 }
 
 module.exports = router;
