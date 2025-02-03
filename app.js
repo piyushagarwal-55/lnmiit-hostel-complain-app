@@ -120,4 +120,6 @@ function ensureModerator(req, res, next) {
 }
 
 
-module.exports.handler = serverless(app);
+module.exports = (req, res) => {
+  app(req, res);
+};
