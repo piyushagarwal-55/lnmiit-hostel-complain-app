@@ -1,5 +1,7 @@
 const router = require('express').Router();
 const User = require('../models/user.model')
+const path = require('path');  // Required to join paths
+
 const {body,validationResult}=require('express-validator');
 const passport = require('passport')
 

@@ -1,6 +1,7 @@
 
 const express = require('express')
 const createHttpError = require('http-errors')
+const ejs = require('ejs'); // Ensure EJS is required
 const morgan = require('morgan')
 const mongoose = require('mongoose')
 require('dotenv').config()
@@ -10,18 +11,19 @@ const passport = require('passport')
 const { roles } = require('./utils/constants');
 const serverless = require('serverless-http'); 
 // const connectMongo = require('connect-mongo');
-
+const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 8000;
 
-
 app.use(morgan('dev'));
 app.set('view engine' , 'ejs');
+app.set('views', path.join(__dirname, 'views')); 
 app.use(express.static('public'));
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 const MongoStore = require('connect-mongo'); // Import directly
+
 app.use(
     session({
       secret: process.env.SESSION_SECRET,
