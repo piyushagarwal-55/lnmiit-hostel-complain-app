@@ -105,4 +105,6 @@ function ensureAdmin(req, res, next) {
 }
 
 
-module.exports = serverless(app);
+module.exports = (req, res) => {
+  app(req, res);
+};
