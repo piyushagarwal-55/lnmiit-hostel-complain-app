@@ -14,7 +14,7 @@ const serverless = require('serverless-http');
 const path = require('path');
 
 const app = express();
-const PORT = process.env.PORT || 8000;
+// const PORT = process.env.PORT || 8000;
 
 app.use(morgan('dev'));
 app.set('view engine' , 'ejs');
