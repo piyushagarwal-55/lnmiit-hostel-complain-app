@@ -18,6 +18,7 @@ router.post('/login', ensureNotAuthenticated, passport.authenticate('local', {
 }));
 
 router.post('/register', ensureNotAuthenticated, [
+  
   body('email').trim().isEmail().withMessage('Email must be a valid email').normalizeEmail().toLowerCase().custom(value => {
     if (!value.endsWith('@lnmiit.ac.in')) {
       throw new Error('Email must end with @lnmiit.ac.in');
@@ -36,6 +37,8 @@ router.post('/register', ensureNotAuthenticated, [
     .withMessage('Hostel number must be between 1 and 5')
 ], async (req, res, next) => {
   try {
+    console.log('User registered, redirecting to login page...');
+
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       errors.array().forEach(error => {
@@ -57,6 +60,7 @@ router.post('/register', ensureNotAuthenticated, [
       req.flash('error', 'Email already exists');
       return res.redirect('/auth/register');
     }
+    console.log('User registered, redirecting to login page...');
 
     const user = new User(req.body);
     await user.save();
