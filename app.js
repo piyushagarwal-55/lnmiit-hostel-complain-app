@@ -56,7 +56,7 @@ app.use((req,res,next)=>{
    next();
 })
 mongoose.connect(process.env.MONGO_URI).then(() => {console.log('connected');
-app.listen(PORT, () => console.log(`RUNNING`));
+// app.listen(PORT, () => console.log(`RUNNING`));
 })
     .catch(err => console.log(err.message));
 
@@ -118,7 +118,6 @@ function ensureModerator(req, res, next) {
         return res.redirect('/');
     }
 }
-
 
 module.exports = (req, res) => {
   app(req, res);
