@@ -12,7 +12,7 @@ router.get('/register', ensureNotAuthenticated, async (req, res, next) => {
 });
 
 router.post('/login', ensureNotAuthenticated, passport.authenticate('local', {
-  successRedirect: 'https://hostel-management-advanced.vercel.app/',
+  successRedirect: 'https://lnmiithostelcomplain.vercel.app/',
   failureRedirect: '/auth/login',  // Correctly redirects back to login page on failure
   failureFlash: true
 }));
@@ -65,7 +65,7 @@ router.post('/register', ensureNotAuthenticated, [
     const user = new User(req.body);
     await user.save();
     req.flash('success', 'Successfully registered! Please Log in...');
-    res.redirect('https://hostel-management-advanced.vercel.app/auth/login');
+    res.redirect('https://lnmiithostelcomplain.vercel.app/auth/login');
   } catch (error) {
     next(error);
   }
