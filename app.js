@@ -8,6 +8,7 @@ const session = require('express-session');
 const connectFlash = require('connect-flash');
 const passport = require('passport')
 const { roles } = require('./utils/constants');
+const serverless = require('serverless-http'); 
 // const connectMongo = require('connect-mongo');
 
 
@@ -117,4 +118,4 @@ function ensureModerator(req, res, next) {
 }
 
 
-module.exports = app;
+module.exports.handler = serverless(app);
